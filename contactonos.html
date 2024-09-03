@@ -1,0 +1,526 @@
+<html>
+  <head>
+    <base href="" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - FUNDAMOR</title>
+    <style>
+      :root {
+        --primary-color: #ff6b6b;
+        --secondary-color: #4ecdc4;
+        --accent-color: #feca57;
+        --text-color: #2d3436;
+        --bg-color: #f7f1e3;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 20px 0;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+      }
+
+      .logo h1 {
+        font-size: 2em;
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 20px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-color);
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 2px 0;
+        transition: 0.4s;
+      }
+
+      main {
+        flex: 1;
+        padding: 40px 0;
+      }
+
+      .page-title {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 40px;
+        font-size: 2.5em;
+      }
+
+      .contact-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .contact-form,
+      .contact-info {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .contact-form {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: inherit;
+      }
+
+      textarea {
+        height: 150px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        font-weight: 500;
+        font-size: 1.1em;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .contact-info {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      .contact-info h3 {
+        margin-top: 0;
+        font-size: 1.5em;
+      }
+
+      .contact-detail {
+        margin-bottom: 20px;
+      }
+
+      .contact-detail i {
+        margin-right: 10px;
+      }
+
+      footer {
+        background-color: var(--text-color);
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+      }
+      #footer-info a:hover {
+        text-decoration: underline;
+      }
+
+      #footer-info a {
+        color: var(--bg-color); /* Color para los enlaces */
+        text-decoration: none;
+        margin-left: 50px;
+      }
+      /* Estilos para el mensaje */
+      #response-message {
+        margin-top: 30px;
+        font-weight: bold;
+        display: none;
+      }
+      #response-message.success {
+        color: green;
+      }
+      #response-message.error {
+        color: red;
+      }
+      /* Media queries para diseño responsive */
+
+      @media (max-width: 768px) {
+        .contact-content {
+          width: 100%;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          position: absolute;
+          top: 64px;
+          left: 0;
+          background-color: var(--primary-color);
+          padding: 20px 0;
+          text-align: center;
+          z-index: 1000;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        .menu-toggle {
+          display: flex;
+          margin-top: 0px;
+        }
+        .logo img {
+          width: 40px;
+          height: 40px;
+        }
+        .btn {
+          padding: 10px 20px;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr; /* Una columna para pantallas medianas */
+        }
+        #footer-info {
+          display: grid;
+          font-size: 10px;
+        }
+      }
+      /* Ajustes para pantallas pequeñas (móviles) */
+      @media (max-width: 480px) {
+        .logo h1 {
+          font-size: 1.5em;
+        }
+
+        .hero {
+          height: 50vh; /* Reduce la altura del hero para móviles */
+        }
+
+        .hero h2 {
+          font-size: 1.5em;
+        }
+
+        .btn {
+          padding: 8px 16px;
+        }
+
+        .services h2 {
+          font-size: 1.8em;
+        }
+      }
+    </style>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+    </style>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <img
+              src="https://res.cloudinary.com/dl7kjajkv/image/upload/v1724100859/imagenes/fundamor_imagen_transparente_l6fiql.png"
+              class="logo"
+              alt="logo"
+            />
+            <h1>FUNDAMOR</h1>
+          </div>
+          <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/nuestros_servicios.html">Servicios</a></li>
+            <li><a href="/nosotros.html">Nosotros</a></li>
+            <li><a href="/contactonos.html">Contactanos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 class="page-title animate-fade-in">Contáctanos</h1>
+
+        <div class="contact-container">
+          <section class="contact-form animate-fade-in">
+            <h2>Envíanos un mensaje</h2>
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefono:</label>
+                <input type="text" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="btn">Enviar mensaje</button>
+            </form>
+          </section>
+
+          <section class="contact-info animate-fade-in">
+            <h2>Información de contacto</h2>
+            <div class="contact-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>Dirección: Calle 17 #10s, Ciudad Bogota, Pais Colombia</p>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-phone"></i>
+              <p>Teléfono: +57 3134202705</p>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <p>Email: fundaciondaamor2024@gmail.com</p>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-clock"></i>
+              <p>Horario de atención: Lunes a Viernes, 8:00 AM - 6:00 PM</p>
+            </div>
+            <div class="social-media">
+              <h3>Síguenos en redes sociales</h3>
+              <a href="#" class="btn" style="margin-right: 10px"
+                ><i class="fab fa-facebook-f"></i> Facebook</a
+              >
+              <a href="#" class="btn"
+                ><i class="fab fa-instagram"></i> Instagram</a
+              >
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div id="footer-info">
+          Copyright © 2024. Fundamor Todos los derechos reservados. 
+          <a
+            href="https://protechsolucionesplus.com/"
+            target="_blank"
+            alt="protechsolucionesplus"
+            >Diseño web: Protech Soluciones Plus</a
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  
+  console.log(mobileMenu); 
+  console.log(navLinks);   
+  
+  if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Cierra el menú cuando se hace clic en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+});
+    </script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const animatedElements = document.querySelectorAll(".animate-fade-in");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        animatedElements.forEach((el) => {
+          el.style.opacity = 0;
+          el.style.transform = "translateY(20px)";
+          observer.observe(el);
+        });
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita el envío estándar del formulario
+
+            // Crear un objeto FormData con los datos del formulario
+            var formData = new FormData(this);
+
+            // Enviar el formulario usando fetch
+            fetch(
+              "https://script.google.com/macros/s/AKfycbwqo4HuAVUlNYa4MY7chGhwQ4Tlizj-HPuWnPT5gFUOZboac8pDfc9QJWgTuBKkJoE/exec",
+              {
+                method: "POST",
+                body: formData,
+              }
+            )
+              .then((response) => response.text())
+              .then((data) => {
+                // Mostrar mensaje de éxito
+                var responseMessage =
+                  document.getElementById("response-message");
+                responseMessage.innerText = "¡Mensaje enviado con éxito!";
+                responseMessage.classList.remove("error");
+                responseMessage.classList.add("success");
+                responseMessage.style.display = "block"; // Mostrar el mensaje
+                document.getElementById("contact-form").reset();
+
+                // Ocultar el mensaje después de 5 segundos
+                setTimeout(function () {
+                  responseMessage.style.display = "none";
+                  responseMessage.innerText = ""; // Limpiar el texto del mensaje
+                }, 3000); // 5000 milisegundos = 5 segundos
+              })
+              .catch((error) => {
+                // Mostrar mensaje de error
+                var responseMessage =
+                  document.getElementById("response-message");
+                responseMessage.innerText =
+                  "Hubo un error al enviar el mensaje. Por favor, inténtelo de nuevo.";
+                responseMessage.classList.remove("success");
+                responseMessage.classList.add("error");
+                responseMessage.style.display = "block"; // Mostrar el mensaje
+
+                // Ocultar el mensaje después de 5 segundos
+                setTimeout(function () {
+                  responseMessage.style.display = "none";
+                  responseMessage.innerText = ""; // Limpiar el texto del mensaje
+                }, 5000); // 5000 milisegundos = 5 segundos
+              });
+          });
+
+        // Form submission handling
+        const contactForm = document.getElementById("contact-form");
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Here you would typically send the form data to a server
+          // For this example, we'll just show an alert
+          alert(
+            "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto."
+          );
+          contactForm.reset();
+        });
+      });
+    </script>
+  </body>
+</html>

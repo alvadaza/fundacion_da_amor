@@ -1,0 +1,438 @@
+<html>
+  <head>
+    <base href="" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validación de Bachillerato - FUNDAMOR</title>
+    <style>
+      :root {
+        --primary-color: #ff6b6b;
+        --secondary-color: #4ecdc4;
+        --accent-color: #feca57;
+        --text-color: #2d3436;
+        --bg-color: #f7f1e3;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 20px 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo h1 {
+        font-size: 2em;
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 20px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-color);
+      }
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 2px 0;
+        transition: 0.4s;
+      }
+
+      main {
+        padding: 40px 0;
+      }
+
+      .page-title {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 40px;
+        font-size: 2.5em;
+      }
+
+      .content-section {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .content-section h2 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        font-weight: 500;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .features-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+
+      .features-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--secondary-color);
+        font-weight: bold;
+      }
+
+      footer {
+        background-color: var(--text-color);
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+      }
+      #footer-info a:hover {
+        text-decoration: underline;
+      }
+
+      #footer-info a {
+        color: var(--bg-color); /* Color para los enlaces */
+        text-decoration: none;
+        margin-left: 50px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out;
+      }
+    </style>
+    <style>
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          position: absolute;
+          top: 64px;
+          left: 0;
+          background-color: var(--primary-color);
+          padding: 20px 0;
+          text-align: center;
+          z-index: 1000;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+        .logo img {
+          width: 40px;
+          height: 40px;
+        }
+        .page-title {
+          margin: 0;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr; /* Una columna para pantallas medianas */
+        }
+        #footer-info {
+          display: grid;
+          font-size: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo h1 {
+          font-size: 1.5em;
+        }
+
+        .hero {
+          height: 50vh; /* Reduce la altura del hero para móviles */
+        }
+
+        .hero h2 {
+          font-size: 1.5em;
+        }
+
+        .btn {
+          padding: 8px 16px;
+        }
+
+        .services h2 {
+          font-size: 1.8em;
+        }
+      }
+    </style>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <img
+              src="https://res.cloudinary.com/dl7kjajkv/image/upload/v1724100859/imagenes/fundamor_imagen_transparente_l6fiql.png"
+              class="logo"
+              alt="logo"
+            />
+            <h1>FUNDAMOR</h1>
+          </div>
+          <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/nuestros_servicios.html">Servicios</a></li>
+            <li><a href="/nosotros.html">Nosotros</a></li>
+            <li><a href="/contactonos.html">Contactanos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h1 class="page-title animate-fade-in">Validación de Bachillerato</h1>
+
+        <section class="content-section animate-fade-in">
+          <h2>Completa tu Educación Secundaria</h2>
+          <p>
+            En FUNDAMOR, creemos que nunca es tarde para completar tu educación.
+            Nuestro programa de Validación de Bachillerato está diseñado para
+            ayudarte a alcanzar tus metas educativas de una manera flexible y
+            adaptada a tu estilo de vida.
+          </p>
+          <a href="/contacto.html" class="btn">Inscríbete Ahora</a>
+        </section>
+
+        <section class="content-section animate-fade-in">
+          <h2>Características del Programa</h2>
+          <ul class="features-list">
+            <li>Horarios flexibles para adaptarse a tu rutina</li>
+            <li>Metodología de enseñanza personalizada</li>
+            <li>Material didáctico actualizado y de calidad</li>
+            <li>Docentes altamente calificados y comprometidos</li>
+            <li>Asesoría académica continua</li>
+            <li>Preparación para las pruebas ICFES Saber 11°</li>
+          </ul>
+        </section>
+
+        <section class="content-section animate-fade-in">
+          <h2>Proceso de Inscripción</h2>
+          <ol>
+            <li>Completa el formulario de pre-inscripción en línea</li>
+            <li>
+              Asiste a una sesión de orientación en nuestras instalaciones
+            </li>
+            <li>Presenta la documentación requerida</li>
+            <li>Realiza una evaluación diagnóstica</li>
+            <li>Formaliza tu matrícula y comienza tus estudios</li>
+          </ol>
+          <a href="#formulario" class="btn">Iniciar Pre-inscripción</a>
+        </section>
+
+        <section id="inscripcion" class="content-section animate-fade-in">
+          <h2>Formulario de Pre-inscripción</h2>
+          <form id="formulario">
+            <div>
+              <label for="nombre">Nombre Completo:</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </div>
+            <div>
+              <label for="email">Correo Electrónico:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono" required />
+            </div>
+            <div>
+              <label for="ultimo-grado">Último Grado Cursado:</label>
+              <select id="ultimo-grado" name="ultimoGrado" required>
+                <option value="">Selecciona una opción</option>
+                <option value="6">6° grado</option>
+                <option value="7">7° grado</option>
+                <option value="8">8° grado</option>
+                <option value="9">9° grado</option>
+                <option value="10">10° grado</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Enviar Pre-inscripción</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div id="footer-info">
+          Copyright © 2024. Fundamor Todos los derechos reservados. 
+          <a
+            href="https://protechsolucionesplus.com/"
+            target="_blank"
+            alt="protechsolucionesplus"
+            >Diseño web: Protech Soluciones Plus</a
+        </div>
+      </div>
+    </footer>
+    <script>  
+  
+      document.addEventListener('DOMContentLoaded', (event) => {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  
+  console.log(mobileMenu); 
+  console.log(navLinks);   
+  
+  if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Cierra el menú cuando se hace clic en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+});
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const form = document.getElementById("formulario");
+
+    // Agregar el evento submit al formulario
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Evitar que se recargue la página al enviar el formulario
+
+      const formData = new FormData(form); // Capturar los datos del formulario
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzPTzkeV1EUD6L95V6w2iqQuOWULzap_Dm5iWAE5zeoAECJKEmW8fsYCYtZsMaVk1tyaA/exec"; // Enlace de tu script de Google Apps Script
+
+      // Enviar los datos del formulario al script
+      fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())
+      .then((responseText) => {
+        // Mostrar mensaje de confirmación
+        alert("¡Gracias por tu pre-inscripción! Nos pondremos en contacto contigo pronto.");
+        form.reset(); // Reiniciar el formulario
+      })
+      .catch(error => {
+        console.error('Error al enviar el formulario:', error);
+        alert("Hubo un error al enviar el formulario. Inténtalo de nuevo más tarde.");
+      });
+    });
+
+    // Animación de entrada para las secciones
+    const observerOptions = {
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fade-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll(".content-section").forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,424 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programas Deportivos - FUNDAMOR</title>
+    <style>
+      :root {
+        --primary-color: #ff6b6b;
+        --secondary-color: #4ecdc4;
+        --accent-color: #feca57;
+        --text-color: #2d3436;
+        --bg-color: #f7f1e3;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 20px 0;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+      }
+
+      .logo h1 {
+        font-size: 2em;
+        margin: 0;
+        margin-left: 20px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 20px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-color);
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 2px 0;
+        transition: 0.4s;
+      }
+
+      main {
+        padding: 40px 0;
+      }
+
+      .page-title {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 40px;
+      }
+
+      .hero-section {
+        background-image: url("/imagenes/ball-5755803_1280.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .hero-content {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .sports-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .sport-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .sport-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .sport-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .sport-content {
+        padding: 20px;
+      }
+
+      .sport-content h3 {
+        color: var(--secondary-color);
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      footer {
+        background-color: var(--text-color);
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+      }
+      #footer-info a:hover {
+        text-decoration: underline;
+      }
+
+      #footer-info a {
+        color: var(--bg-color); /* Color para los enlaces */
+        text-decoration: none;
+        margin-left: 50px;
+      }
+
+      @media (max-width: 768px) {
+    
+      .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      background-color: var(--primary-color);
+      padding: 20px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        .menu-toggle {
+          display: flex;
+          margin-top: 0px;
+        }
+        .logo img {
+        width: 40px;
+        height: 40px;
+      }
+        .hero h2 {
+          font-size: 2em;
+        } 
+
+        .btn {
+          padding: 10px 20px;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr; /* Una columna para pantallas medianas */
+        }
+        #footer-info {
+          display: grid;
+          font-size: 10px;
+        }
+      }
+
+      /* Ajustes para pantallas pequeñas (móviles) */
+      @media (max-width: 480px) {
+        .logo h1 {
+          font-size: 1.5em;
+        }
+
+        .hero {
+          height: 50vh; /* Reduce la altura del hero para móviles */
+        }
+
+        .hero h2 {
+          font-size: 1.5em;
+        }
+
+        .btn {
+          padding: 8px 16px;
+        }
+
+        .services h2 {
+          font-size: 1.8em;
+        }
+      }
+    </style>
+      <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <img
+        src="https://res.cloudinary.com/dl7kjajkv/image/upload/v1724100859/imagenes/fundamor_imagen_transparente_l6fiql.png"
+        class="logo"
+        alt="logo"
+      />
+            <h1>FUNDAMOR</h1>
+          </div>
+          <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/nuestros_servicios.html">Servicios</a></li>
+            <li><a href="/nosotros.html">Nosotros</a></li>
+            <li><a href="/contactonos.html">Contactanos</a></li>
+          </ul>
+         
+        </nav>
+      </div>
+    </header>
+
+
+    <main>
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1>Programas Deportivos</h1>
+          <p>Fomentando un estilo de vida saludable a través del deporte</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2 class="page-title">Nuestras Actividades Deportivas</h2>
+
+        <div class="sports-grid">
+          <div class="sport-card">
+            <div
+              class="sport-image"
+              style="background-image: url('/imagenes/soccer-3568168_1280.jpg')"
+            ></div>
+            <div class="sport-content">
+              <h3>Fútbol</h3>
+              <p>
+                Desarrolla habilidades de trabajo en equipo y mejora tu
+                condición física con nuestros entrenamientos de fútbol.
+              </p>
+              <a href="https://forms.gle/hcSjDdpJyhk64tyX9" target="_blank" class="btn">Inscríbete</a>
+            </div>
+          </div>
+
+          <div class="sport-card">
+            <div
+              class="sport-image"
+              style="
+                background-image: url('imagenes/basketball-7121617_1280.jpg');
+              "
+            ></div>
+            <div class="sport-content">
+              <h3>Baloncesto</h3>
+              <p>
+                Aprende las técnicas fundamentales del baloncesto y disfruta de
+                la emoción de este deporte dinámico.
+              </p>
+              <a href="https://forms.gle/hcSjDdpJyhk64tyX9" target="_blank" class="btn">Inscríbete</a>
+            </div>
+          </div>
+
+          <div class="sport-card">
+            <div
+              class="sport-image"
+              style="background-image: url('/imagenes/swimming-78112_1280.jpg')"
+            ></div>
+            <div class="sport-content">
+              <h3>Natación</h3>
+              <p>
+                Mejora tu resistencia y técnica en el agua con nuestros
+                programas de natación para todas las edades.
+              </p>
+              <a href="https://forms.gle/hcSjDdpJyhk64tyX9" target="_blank" class="btn">Inscríbete</a>
+            </div>
+          </div>
+
+          <div class="sport-card">
+            <div
+              class="sport-image"
+              style="background-image: url('/imagenes/track-441242_1280.jpg')"
+            ></div>
+            <div class="sport-content">
+              <h3>Atletismo</h3>
+              <p>
+                Descubre tus capacidades atléticas y mejora tu velocidad,
+                resistencia y fuerza con nuestro programa de atletismo.
+              </p>
+              <a href="https://forms.gle/hcSjDdpJyhk64tyX9" target="_blank" class="btn">Inscríbete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div id="footer-info">
+          Copyright © 2024. Fundamor Todos los derechos reservados. 
+          <a
+            href="https://protechsolucionesplus.com/"
+            target="_blank"
+            alt="protechsolucionesplus"
+            >Diseño web: Protech Soluciones Plus</a
+        </div>
+      </div>
+    </footer>
+    <script>  
+    document.addEventListener('DOMContentLoaded', (event) => {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  
+  console.log(mobileMenu); 
+  console.log(navLinks);   
+  
+  if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Cierra el menú cuando se hace clic en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+});
+
+      </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+        const missionVisionSections =
+          document.querySelectorAll(".sport-image");
+        missionVisionSections.forEach((section) => {
+          section.addEventListener("mouseenter", () => {
+            section.style.transform = "scale(1.05)";
+            section.style.transition = "transform 0.3s ease";
+          });
+          section.addEventListener("mouseleave", () => {
+            section.style.transform = "scale(1)";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

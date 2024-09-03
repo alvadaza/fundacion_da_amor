@@ -1,0 +1,380 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros - FUNDAMOR</title>
+    <style>
+      :root {
+        --primary-color: #ff6b6b;
+        --secondary-color: #4ecdc4;
+        --accent-color: #feca57;
+        --text-color: #2d3436;
+        --bg-color: #f7f1e3;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        width: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 20px 0;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+      }
+
+      .logo h1 {
+        font-size: 2em;
+        margin: 0;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 20px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-color);
+      }
+      
+      .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    transition: 0.4s;
+  }
+
+      
+
+      main {
+        padding: 40px 0;
+
+      }
+
+      .page-title {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 40px;
+      }
+
+      .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .about-image {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+      }
+
+      .about-image img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .mission-vision {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .mission,
+      .vision {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .mission h2,
+      .vision h2 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+      }
+
+      footer {
+        background-color: var(--text-color);
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;  
+      }
+      #footer-info a:hover {
+  text-decoration: underline;
+}
+
+#footer-info a {
+  color: var(--bg-color); /* Color para los enlaces */
+  text-decoration: none;
+  margin-left: 50px;
+}
+
+      @media (max-width: 768px) {
+        .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      background-color: var(--primary-color);
+      padding: 20px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+    
+    .nav-links.active {
+      display: flex;
+    }
+    
+    .nav-links li {
+      margin: 10px 0;
+    }
+    
+    .menu-toggle {
+      display: flex;
+    }
+    .logo img {
+        width: 40px;
+        height: 40px;
+      }
+      .page-title {
+        margin: 0;
+      }
+
+        .service-grid {
+          grid-template-columns: 1fr; /* Una columna para pantallas medianas */
+        }
+        #footer-info {
+    display: grid;
+    font-size: 10px;
+  }
+      }
+
+      @media (max-width: 480px) {
+   
+        .logo h1 {
+          font-size: 1.5em;
+        }
+
+        .hero {
+          height: 50vh; /* Reduce la altura del hero para móviles */
+        }
+
+        .hero h2 {
+          font-size: 1.5em;
+        }
+
+        .btn {
+          padding: 8px 16px;
+        }
+
+        .services h2 {
+          font-size: 1.8em;
+        }
+      }
+    </style>
+     <link
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+     rel="stylesheet"
+   />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <img
+        src="https://res.cloudinary.com/dl7kjajkv/image/upload/v1724100859/imagenes/fundamor_imagen_transparente_l6fiql.png"
+        class="logo"
+        alt="logo"
+      />
+            <h1>FUNDAMOR</h1>
+          </div>
+          <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/nuestros_servicios.html">Servicios</a></li>
+            <li><a href="/nosotros.html">Nosotros</a></li>
+            <li><a href="/contactonos.html">Contactanos</a></li>
+          </ul>
+         
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 class="page-title">Sobre FUNDAMOR</h1>
+
+        <div class="about-content">
+          <div class="about-text">
+            <h2>Nuestra Historia</h2>
+            <p>
+              FUNDAMOR nació en el corazón de nuestra comunidad con el propósito
+              de brindar oportunidades y esperanza a quienes más lo necesitan.
+              Desde nuestros humildes inicios, hemos crecido para convertirnos
+              en una organización integral que aborda múltiples aspectos del
+              desarrollo humano.
+            </p>
+            <p>
+              A lo largo de los años, hemos expandido nuestros servicios para
+              incluir programas deportivos, educación para jóvenes y adultos,
+              acceso a educación superior, y programas de alimentación
+              comunitaria. Nuestro compromiso con el bienestar y el progreso de
+              nuestra comunidad es el motor que impulsa cada una de nuestras
+              iniciativas.
+            </p>
+          </div>
+          <div class="about-image">
+            <img
+              src="/imagenes/fundamor1.png"
+              alt="Equipo de FUNDAMOR trabajando en la comunidad"
+              width="500"
+              height="300"
+            />
+          </div>
+        </div>
+
+        <div class="mission-vision">
+          <div class="mission">
+            <h2>Nuestra Misión</h2>
+            <p>
+              En FUNDAMOR, nos dedicamos a empoderar a individuos y familias a
+              través de educación, deporte y nutrición. Buscamos crear un
+              impacto positivo y duradero en la vida de las personas, fomentando
+              el desarrollo integral y la construcción de una sociedad más
+              equitativa y solidaria.
+            </p>
+          </div>
+          <div class="vision">
+            <h2>Nuestra Visión</h2>
+            <p>
+              Aspiramos a ser un faro de esperanza y transformación en nuestra
+              comunidad, expandiendo nuestro alcance para tocar cada vez más
+              vidas. Visualizamos un futuro donde cada individuo tenga acceso a
+              las herramientas y oportunidades necesarias para alcanzar su
+              máximo potencial y contribuir positivamente a la sociedad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div id="footer-info">
+          Copyright © 2024. Fundamor Todos los derechos reservados. 
+          <a
+            href="https://protechsolucionesplus.com/"
+            target="_blank"
+            alt="protechsolucionesplus"
+            >Diseño web: Protech Soluciones Plus</a
+        </div>
+      </div>
+    </footer>
+    <script>  
+  
+      document.addEventListener('DOMContentLoaded', (event) => {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  
+  console.log(mobileMenu); 
+  console.log(navLinks);   
+  
+  if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Cierra el menú cuando se hace clic en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+});
+
+</script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const missionVisionSections =
+          document.querySelectorAll(".mission, .vision");
+        missionVisionSections.forEach((section) => {
+          section.addEventListener("mouseenter", () => {
+            section.style.transform = "scale(1.05)";
+            section.style.transition = "transform 0.3s ease";
+          });
+          section.addEventListener("mouseleave", () => {
+            section.style.transform = "scale(1)";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
