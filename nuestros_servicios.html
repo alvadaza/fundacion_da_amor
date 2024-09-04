@@ -335,7 +335,30 @@
         </div>
       </div>
     </footer>
+    <script>  
+  
+      document.addEventListener('DOMContentLoaded', (event) => {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+  
+  console.log(mobileMenu); 
+  console.log(navLinks);   
+  
+  if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
 
+    // Cierra el menú cuando se hace clic en un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+});
+
+</script>
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
         const serviceCards = document.querySelectorAll(".service-card");
